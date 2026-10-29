@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Recenzii · LUCA</title>
+<script src="static/acces.js?v=1"></script>
+<link rel="preload" href="static/fonts/Inter-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="static/luca.css?v=6">
+<link rel="stylesheet" href="static/online.css?v=1">
+<script src="data/demo-data.js?v=0b49da7edb4b" defer></script>
+<script src="static/mock-api.js?v=1" defer></script>
+<script src="static/common.js?v=2" defer></script>
+<script src="static/retea.js?v=4" defer></script>
+<script src="static/memorie.js?v=3" defer></script>
+<script src="static/aprobare.js?v=5" defer></script>
+</head>
+<body>
+<a class="skip" href="#lista">Sari la recenzii</a>
+<div id="app">
+  <header class="appbar">
+    <div class="appbar-in">
+      <div class="appbar-brand">
+        <a class="appbar-home" href="index.html"><span class="appbar-mark">LUCA</span><span class="appbar-product">Recenzii &amp; reputație</span></a>
+        <span class="badge demo">Demonstrație</span>
+      </div>
+      <nav class="tabs" aria-label="Secțiuni">
+        <a class="tab" href="index.html" aria-current="page">Recenzii</a>
+        <a class="tab" href="rapoarte.html">Rapoarte</a>
+      </nav>
+      <div class="appbar-user">
+        <span class="user"><span class="avatar" id="userAvatar" aria-hidden="true"></span><span class="user-name" id="userName"></span></span>
+        <form method="get" action="login.html" data-iesire><button type="submit" class="exit"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>Ieșire</button></form>
+      </div>
+    </div>
+  </header>
+  <div class="online-bar" role="note"><div class="online-bar-in"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><p class="just" lang="ro">Ver&shy;siu&shy;ne on&shy;li&shy;ne de pre&shy;zen&shy;ta&shy;re: pro&shy;pu&shy;ne&shy;ri&shy;le și ana&shy;li&shy;ze&shy;le au fost pre&shy;gă&shy;ti&shy;te de sis&shy;tem di&shy;na&shy;in&shy;te, pe ace&shy;leași re&shy;cen&shy;zii pu&shy;bli&shy;ce. În plat&shy;for&shy;mă, ge&shy;ne&shy;ra&shy;rea ru&shy;lea&shy;ză live.</p></div></div>
+
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
+        <div class="pagehead has-mem">
+          <div class="pagehead-text">
+            <h1>Recenzii</h1>
+            <p class="lede just" id="lede">Re&shy;cen&shy;zii pu&shy;bli&shy;ce Google pen&shy;tru uni&shy;tă&shy;ți&shy;le LUCA din Ro&shy;mâ&shy;nia și Po&shy;lo&shy;nia, cu&shy;le&shy;se pe 29.10.2026. Re&shy;cen&shy;zen&shy;ții apar doar cu ini&shy;ția&shy;le. În de&shy;mon&shy;stra&shy;ție nu se pu&shy;bli&shy;că nimic.</p>
+          </div>
+          <div class="pagehead-side">
+            <div class="pagehead-actions">
+              <button type="button" class="btn ghost" id="btnIstoric" aria-haspopup="dialog"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>Istoric<span class="count" id="istoricN" hidden></span></button>
+              <button type="button" class="btn blue" id="btnActualizeaza"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>Actualizează din Google</button>
+            </div>
+            <!-- the network's memory (memorie.js): every approved reply becomes an example -->
+            <section class="mem" id="memorie" aria-labelledby="memTitlu" aria-busy="true">
+              <div class="mem-in">
+                <div class="mem-viz" aria-hidden="true"></div>
+                <div class="mem-txt">
+                  <h2 class="mem-title" id="memTitlu"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.5 6.2 15.5 6.8"/><path d="m7.1 8.2 3.8 7.6"/><path d="m16.8 9.2-3.6 6.6"/></svg>Memoria rețelei</h2>
+                  <span class="skel-txt" aria-hidden="true"></span>
+                  <span class="skel-txt" aria-hidden="true" style="width: 52%"></span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="kpis" id="kpis" role="group" aria-label="Recenzii pe stări" aria-busy="true">
+          <div class="kpi is-skel" aria-hidden="true"><span class="kpi-v"><span class="skel-num"></span></span><span class="kpi-k"><span class="skel-txt"></span></span></div>
+          <div class="kpi is-skel" aria-hidden="true"><span class="kpi-v"><span class="skel-num"></span></span><span class="kpi-k"><span class="skel-txt"></span></span></div>
+          <div class="kpi is-skel" aria-hidden="true"><span class="kpi-v"><span class="skel-num"></span></span><span class="kpi-k"><span class="skel-txt"></span></span></div>
+          <div class="kpi is-skel" aria-hidden="true"><span class="kpi-v"><span class="skel-num"></span></span><span class="kpi-k"><span class="skel-txt"></span></span></div>
+          <div class="kpi is-skel" aria-hidden="true"><span class="kpi-v"><span class="skel-num"></span></span><span class="kpi-k"><span class="skel-txt"></span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <section class="card alerts" id="alerte" aria-labelledby="alerteTitlu" hidden></section>
+
+      <section class="card filters" aria-label="Filtre">
+        <div class="f-row">
+          <label class="f-field f-unit" for="fUnit">
+            <span class="f-lab">Unitate</span>
+            <select class="input" id="fUnit"><option value="">Toate unitățile</option></select>
+          </label>
+          <label class="f-field f-country" for="fTara">
+            <span class="f-lab">Țară</span>
+            <select class="input" id="fTara"><option value="">Toate țările</option></select>
+          </label>
+          <label class="f-field f-city" for="fOras">
+            <span class="f-lab">Oraș</span>
+            <select class="input" id="fOras"><option value="">Toate orașele</option></select>
+          </label>
+          <div class="f-field f-stars">
+            <span class="f-lab" id="fSteleLab">Stele</span>
+            <div class="tg-group" role="group" aria-labelledby="fSteleLab">
+              <button type="button" class="tg" data-stele="1" aria-pressed="false" aria-label="1 stea">1<span class="st" aria-hidden="true">★</span></button>
+              <button type="button" class="tg" data-stele="2" aria-pressed="false" aria-label="2 stele">2<span class="st" aria-hidden="true">★</span></button>
+              <button type="button" class="tg" data-stele="3" aria-pressed="false" aria-label="3 stele">3<span class="st" aria-hidden="true">★</span></button>
+              <button type="button" class="tg" data-stele="4" aria-pressed="false" aria-label="4 stele">4<span class="st" aria-hidden="true">★</span></button>
+              <button type="button" class="tg" data-stele="5" aria-pressed="false" aria-label="5 stele">5<span class="st" aria-hidden="true">★</span></button>
+            </div>
+          </div>
+          <label class="f-field f-search" for="fText">
+            <span class="f-lab">Caută în text</span>
+            <span class="f-control"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="input" type="search" id="fText" placeholder="Cuvânt din recenzie sau răspuns" autocomplete="off" spellcheck="false"></span>
+          </label>
+        </div>
+        <div class="f-row2">
+          <div class="seg" id="fStare" role="group" aria-label="Stare"></div>
+          <div class="f-summary">
+            <span id="fCount" aria-live="polite"></span>
+            <button type="button" class="btn link sm" id="fClear" hidden>Șterge filtrele</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rev-list" id="lista" aria-label="Lista recenziilor" aria-busy="true" tabindex="-1">
+        <div class="card rev-card is-loading" aria-hidden="true">
+          <div class="prop-skel"><span class="skel-line" style="width: 38%"></span><span class="skel-line" style="width: 92%"></span><span class="skel-line" style="width: 86%"></span><span class="skel-line" style="width: 64%"></span></div>
+        </div>
+        <div class="card rev-card is-loading" aria-hidden="true">
+          <div class="prop-skel"><span class="skel-line" style="width: 42%"></span><span class="skel-line" style="width: 90%"></span><span class="skel-line" style="width: 80%"></span><span class="skel-line" style="width: 58%"></span></div>
+        </div>
+        <p class="sr-only">Se încarcă recenziile…</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-foot wrap">
+    <span>Softmed Labs · demonstrație online · recenzii publice Google culese pe 29.10.2026</span>
+    <button type="button" class="linkish quiet" id="btnReset" aria-haspopup="dialog">Resetează demonstrația</button>
+  </footer>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rapoarte · LUCA</title>
+<script src="static/acces.js?v=1"></script>
+<link rel="preload" href="static/fonts/Inter-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="static/luca.css?v=6">
+<link rel="stylesheet" href="static/online.css?v=1">
+<script src="data/demo-data.js?v=0b49da7edb4b" defer></script>
+<script src="static/mock-api.js?v=1" defer></script>
+<script src="static/common.js?v=2" defer></script>
+<script src="static/rapoarte.js?v=4" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Sari la conținut</a>
+<div id="app">
+  <header class="appbar">
+    <div class="appbar-in">
+      <div class="appbar-brand">
+        <a class="appbar-home" href="index.html"><span class="appbar-mark">LUCA</span><span class="appbar-product">Recenzii &amp; reputație</span></a>
+        <span class="badge demo">Demonstrație</span>
+      </div>
+      <nav class="tabs" aria-label="Secțiuni">
+        <a class="tab" href="index.html">Recenzii</a>
+        <a class="tab" href="rapoarte.html" aria-current="page">Rapoarte</a>
+      </nav>
+      <div class="appbar-user">
+        <span class="user"><span class="avatar" id="userAvatar" aria-hidden="true"></span><span class="user-name" id="userName"></span></span>
+        <form method="get" action="login.html" data-iesire><button type="submit" class="exit"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>Ieșire</button></form>
+      </div>
+    </div>
+  </header>
+  <div class="online-bar" role="note"><div class="online-bar-in"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><p class="just" lang="ro">Ver&shy;siu&shy;ne on&shy;li&shy;ne de pre&shy;zen&shy;ta&shy;re: pro&shy;pu&shy;ne&shy;ri&shy;le și ana&shy;li&shy;ze&shy;le au fost pre&shy;gă&shy;ti&shy;te de sis&shy;tem di&shy;na&shy;in&shy;te, pe ace&shy;leași re&shy;cen&shy;zii pu&shy;bli&shy;ce. În plat&shy;for&shy;mă, ge&shy;ne&shy;ra&shy;rea ru&shy;lea&shy;ză live.</p></div></div>
+
+  <main id="main" tabindex="-1">
+    <div class="hero">
+      <div class="wrap">
+        <div class="pagehead">
+          <div class="pagehead-text">
+            <h1>Sinteză pe rețea</h1>
+            <p class="lede just" id="lede">Nota și nu&shy;mă&shy;rul de re&shy;cen&shy;zii sunt cele afi&shy;șa&shy;te pu&shy;blic de Google pe 29.10.2026. Res&shy;tul ci&shy;fre&shy;lor sunt nu&shy;mă&shy;ra&shy;te în eșan&shy;tion: re&shy;cen&shy;zi&shy;i&shy;le pu&shy;bli&shy;ce afi&shy;șa&shy;te im&shy;pli&shy;cit de Google pen&shy;tru fie&shy;ca&shy;re uni&shy;ta&shy;te.</p>
+            <div class="sample-row" id="esantion"></div>
+          </div>
+          <div class="pagehead-actions">
+            <button type="button" class="btn ghost" id="btnEmail" aria-haspopup="dialog"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Trimite pe e-mail</button>
+            <a class="btn blue" id="btnExport" href="data/LUCA-recenzii-demo-2026-10-29.xlsx" download="LUCA-recenzii-demo-2026-10-29.xlsx"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>Export Excel</a>
+          </div>
+        </div>
+        <div class="tiles" id="fapte" aria-busy="true">
+          <div class="tile is-skel" aria-hidden="true"><div class="v"><span class="skel-num"></span></div><div class="k"><span class="skel-txt"></span></div></div>
+          <div class="tile is-skel" aria-hidden="true"><div class="v"><span class="skel-num"></span></div><div class="k"><span class="skel-txt"></span></div></div>
+          <div class="tile is-skel" aria-hidden="true"><div class="v"><span class="skel-num"></span></div><div class="k"><span class="skel-txt"></span></div></div>
+          <div class="tile is-skel" aria-hidden="true"><div class="v"><span class="skel-num"></span></div><div class="k"><span class="skel-txt"></span></div></div>
+          <div class="tile is-skel" aria-hidden="true"><div class="v"><span class="skel-num"></span></div><div class="k"><span class="skel-txt"></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <section class="card section" id="teme" aria-labelledby="temeTitlu">
+        <div class="section-head">
+          <span class="sec-ic k-amber" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M7.5 8h9"/><path d="M7.5 12h5"/></svg></span>
+          <div>
+            <h2 class="section-title" id="temeTitlu">Teme din recenzii</h2>
+            <p class="section-sub">Ce apare în recenziile din eșantion, pe toată rețeaua.</p>
+          </div>
+        </div>
+        <div id="temeContinut"><p class="muted">Se încarcă…</p></div>
+      </section>
+
+      <section class="card section" id="unitati" aria-labelledby="unitatiTitlu">
+        <div class="section-head">
+          <span class="sec-ic k-blue" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 10 4.5 4h15L21 10"/><path d="M5 10v10h14V10"/><path d="M3 10h18"/><path d="M10 20v-5h4v5"/></svg></span>
+          <div>
+            <h2 class="section-title" id="unitatiTitlu">Situația pe unități</h2>
+            <p class="section-sub">Ordonate după nota Google, de la cea mai mică.</p>
+          </div>
+        </div>
+        <div class="tablewrap" id="tabel"><p class="muted">Se încarcă…</p></div>
+      </section>
+
+      <section class="card section" id="indicatori" aria-labelledby="indicatoriTitlu">
+        <div class="section-head">
+          <span class="sec-ic k-neutral" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7.5 17v-3"/><path d="M11.5 17v-7"/><path d="M15.5 17v-5"/><path d="M19.5 17V7"/></svg></span>
+          <div>
+            <h2 class="section-title" id="indicatoriTitlu">Indicatori Google: afișări, cereri de indicații, apeluri, clicuri pe site</h2>
+            <p class="section-sub">Cum vor arăta indicatorii din Profilul de companie Google, pentru rețea și pe unități.</p>
+          </div>
+        </div>
+        <div id="indicatoriContinut"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-foot wrap">
+    <span>Softmed Labs · demonstrație online · recenzii publice Google culese pe 29.10.2026</span>
+  </footer>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

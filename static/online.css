@@ -1,0 +1,42 @@
+/* LUCA demo, online version only: the info bar under the app bar (and above the login card).
+   Same tokens as luca.css; the rest of the look is the live app's, unchanged. */
+.online-bar {
+  background: var(--chrome-2);
+  color: var(--chrome-muted);
+  border-top: 1px solid var(--chrome-line);
+  font-size: var(--fs-cap);
+  line-height: 1.45;
+}
+.online-bar-in {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 7px var(--gutter) 8px;
+}
+.online-bar .ic {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  color: var(--brand);
+}
+.online-bar p {
+  margin: 0;
+  min-width: 0;
+}
+.login .online-bar {
+  width: min(880px, 100%);
+  margin-bottom: 16px;
+  border: 0;
+  border-radius: var(--r-lg);
+  box-shadow: 0 2px 6px rgba(24, 26, 27, 0.08);
+}
+.login .online-bar-in {
+  padding: 9px 16px;
+}
+@media print {
+  .online-bar {
+    display: none !important;
+  }
+}

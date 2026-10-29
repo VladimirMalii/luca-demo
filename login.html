@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Autentificare · LUCA</title>
+<link rel="preload" href="static/fonts/Inter-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="static/luca.css?v=6">
+<link rel="stylesheet" href="static/online.css?v=1">
+<script src="static/acces.js?v=1" data-pagina="login"></script>
+<script src="static/login.js?v=1" defer></script>
+</head>
+<body class="page-login">
+<main class="login">
+  <div class="online-bar" role="note"><div class="online-bar-in"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><p class="just" lang="ro">Ver&shy;siu&shy;ne on&shy;li&shy;ne de pre&shy;zen&shy;ta&shy;re: pro&shy;pu&shy;ne&shy;ri&shy;le și ana&shy;li&shy;ze&shy;le au fost pre&shy;gă&shy;ti&shy;te de sis&shy;tem di&shy;na&shy;in&shy;te, pe ace&shy;leași re&shy;cen&shy;zii pu&shy;bli&shy;ce. În plat&shy;for&shy;mă, ge&shy;ne&shy;ra&shy;rea ru&shy;lea&shy;ză live.</p></div></div>
+  <div class="login-card">
+    <section class="login-side" aria-labelledby="loginTitlu">
+      <div class="login-brand">
+        <span class="wordmark">LUCA</span>
+        <span class="badge demo">Demonstrație</span>
+      </div>
+      <div>
+        <h1 class="login-title" id="loginTitlu">Recenzii &amp; reputație</h1>
+        <p class="login-tag">Recenziile tuturor unităților, într-un singur loc</p>
+      </div>
+    </section>
+    <section class="login-main" aria-labelledby="loginForm">
+      <h2 class="login-h" id="loginForm">Autentificare</h2>
+      <div class="msg err" id="eroare" role="alert" hidden><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><span>Date de autentificare greșite.</span></div>
+      <form class="login-form" id="formLogin" method="post" action="login.html">
+        <label class="f-field" for="username">
+          <span class="f-lab">Utilizator</span>
+          <input class="input" type="text" id="username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required autofocus>
+        </label>
+        <label class="f-field" for="parola">
+          <span class="f-lab">Parolă</span>
+          <input class="input" type="password" id="parola" name="parola" autocomplete="current-password" required>
+        </label>
+        <button type="submit" class="btn brand block">Intră în cont</button>
+      </form>
+    </section>
+  </div>
+  <footer class="app-foot">Softmed Labs · demonstrație online · recenzii publice Google culese pe 29.10.2026</footer>
+</main>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('eroare')) {
+      document.getElementById('eroare').hidden = false;
+    }
+  })();
+</script>
+</body>
+</html>
