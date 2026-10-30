@@ -6,7 +6,8 @@
    the browser's own fetch. The rules are those of the live backend (app/demo/app.py, stare.py,
    rapoarte.py): same states, status codes, messages, history entries and learned memory.
    Differences, by design: the proposals and analyses were prepared beforehand without memory
-   examples (memorie_folosita [] and din_memorie ""), "Regenerează" shows the same prepared
+   examples (memorie_folosita [] and din_memorie ""; only a closing the team corrected is applied, as
+   on the server), "Regenerează" shows the same prepared
    proposal again with a note, the e-mail links point to this site. Nothing leaves the browser. */
 (function () {
   "use strict";
@@ -533,6 +534,65 @@
     return rezultatMemorie(ex, !!vechi);
   }
 
+  /* Learned closing (stare.py incheiere_invatata): the closing the team corrected by hand on an
+     approved example, i.e. its last line, or a short line ending in "," added above an unchanged
+     signature. It must name LUCA: an added sentence or a note to the team is not a signature. */
+  function liniiText(t) {
+    return String(t || "")
+      .replace(/\r\n/g, "\n")
+      .split("\n")
+      .map(function (l) {
+        return l.replace(/\s+$/, "");
+      })
+      .filter(function (l) {
+        return l.trim();
+      });
+  }
+
+  function incheiereInvatata(ex) {
+    if (!ex || ex.editat_manual !== true) return null;
+    var a = liniiText(ex.raspuns_aprobat);
+    var i = liniiText(ex.propunere_initiala);
+    if (a.length < 2 || !i.length) return null;
+    var inch;
+    if (a[a.length - 1].trim() !== i[i.length - 1].trim()) {
+      inch = a[a.length - 1].trim();
+    } else {
+      var pen = a[a.length - 2].trim();
+      var dinInitiala = i.some(function (x) {
+        return x.trim() === pen;
+      });
+      if (!/,$/.test(pen) || a[a.length - 2].length > 60 || dinInitiala)
+        return null;
+      inch = pen + "\n" + a[a.length - 1].trim();
+    }
+    if (inch.toLowerCase().indexOf("luca") === -1) return null;
+    return inch.length <= 120 ? inch : null;
+  }
+
+  /* The newest example (never the review's own) in the same language and star bucket whose closing
+     the team corrected: { ex, incheiere } or null. */
+  function exempluCuIncheiere(rid) {
+    var rec = REC[rid];
+    var limba = String(rec.limba || "")
+      .trim()
+      .toLowerCase();
+    var grupa = grupaStele(rec.stele);
+    var lista = exempleRecente();
+    for (var k = 0; k < lista.length; k++) {
+      var ex = lista[k];
+      if (
+        ex.reviewId === rid ||
+        ex.limba !== limba ||
+        grupaStele(ex.stele) !== grupa
+      )
+        continue;
+      var inch = incheiereInvatata(ex);
+      if (inch) return { ex: ex, incheiere: inch };
+    }
+    return null;
+  }
+
   /* ------------------------------------------------------ e-mail previews */
 
   function linkSite(rel) {
@@ -709,6 +769,30 @@
     var analiza =
       p.analiza && typeof p.analiza === "object" ? copie(p.analiza) : null;
     if (analiza) analiza.din_memorie = ""; // prepared without memory examples
+    var folosite = [];
+    var invatat = exempluCuIncheiere(rid); // the team's corrected closing replaces the signature
+    if (invatat) {
+      text = liniiText(text)
+        .slice(0, -1)
+        .concat([invatat.incheiere])
+        .join("\n");
+      folosite = [
+        {
+          id: invatat.ex.id,
+          unitate: invatat.ex.unitate,
+          limba: invatat.ex.limba,
+          stele: invatat.ex.stele,
+          teme: (invatat.ex.teme || []).slice(),
+          editat_manual: true,
+        },
+      ];
+      if (analiza)
+        analiza.din_memorie = (
+          "Încheierea corectată de echipă: «" +
+          invatat.incheiere.replace(/\n/g, " ") +
+          "»."
+        ).slice(0, 300);
+    }
     var st = S.st[rid];
     st.stare = PROPUNERE;
     st.propunere = text;
@@ -724,7 +808,7 @@
     st.confirmat_de = null;
     st.nota = null;
     st.editat_manual = false;
-    st.memorie_folosita = [];
+    st.memorie_folosita = folosite;
     var e = intrare(rid, PROPUNERE, text, null, analiza);
     salveaza();
     if (regen) notaRegenerare();
@@ -744,7 +828,7 @@
       motiv: s.motiv === undefined ? null : s.motiv,
       stare: PROPUNERE,
       analiza: copie(st.analiza),
-      memorie_folosita: [],
+      memorie_folosita: copie(folosite),
       istoric: e,
     };
   }
