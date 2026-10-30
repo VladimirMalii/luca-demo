@@ -12,7 +12,7 @@
   var UTILIZATOR = "demo";
   var SARE = "luca-demo-online|";
   var AMPRENTA =
-    "0dd02859b3601f442b096779e487c425f11091bd3dcbd7b5fd2916dead84dc0b";
+    "39a582425c5633e3d4ce79bda95f0d391d57894ffcf391bfba149dc71d9acb95";
   /* The pages login.html may send the visitor to (relative, same folder). */
   var PAGINI = /^(index|rapoarte|raport)\.html(\?[^#]*)?(#.*)?$/;
 
